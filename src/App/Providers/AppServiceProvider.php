@@ -13,7 +13,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        $this->app->router->group(
+            [
+                'namespace' => 'Arpanext\SwaggerApiLpkg\App\Http\Controllers\Api\Specifications',
+                'middleware' => [
+                    //
+                ],
+                'as' => 'api.v1.swagger-api-lpkg.specifications.',
+                'prefix' => '/api/v1/swagger-api-lpkg/specifications',
+            ],
+            function () {
+                require __DIR__ . '/../../routes/api.php';
+            }
+        );
     }
 
     /**
