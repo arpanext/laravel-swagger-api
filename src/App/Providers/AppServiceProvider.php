@@ -15,17 +15,23 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->router->group(
             [
-                'namespace' => 'Arpanext\SwaggerApiLpkg\App\Http\Controllers\Api\Specifications',
+                'namespace' => 'Arpanext\SwaggerApiLpkg\App\Http\Controllers\Api\Schemas',
                 'middleware' => [
                     //
                 ],
-                'as' => 'api.v1.swagger-api-lpkg.specifications.',
-                'prefix' => '/api/v1/swagger-api-lpkg/specifications',
+                'as' => 'api.v1.swagger-api-lpkg.schemas.',
+                'prefix' => '/api/v1/swagger-api-lpkg/schemas',
             ],
             function () {
                 require __DIR__ . '/../../routes/api.php';
             }
         );
+
+        if ($this->app->runningInConsole()) {
+            $this->publishes([
+                __DIR__ . '/../../config' => config_path('vendor/arpanext/swagger-api-lpkg'),
+            ], 'swagger-api-lpkg');
+        }
     }
 
     /**
@@ -35,6 +41,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        if (is_null($this->app['config']->get('vendor.arpanext.swagger-api-lpkg.schemas'))) {
+            $this->mergeConfigFrom(
+                __DIR__ . '/../../config/schemas.php',
+                'vendor.arpanext.swagger-api-lpkg.schemas'
+            );
+        }
     }
 }
