@@ -1,5 +1,5 @@
 {
-    "name": "arpanext/swagger-api-lpkg",
+    "name": "arpanext/laravel-swagger-api",
     "authors": [
         {
             "name": "Arpanext",
@@ -13,14 +13,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Arpanext\\SwaggerApiLpkg\\": "/src/"
+            "Arpanext\\SwaggerApi\\": "/src/"
         }
     },
     "minimum-stability": "dev",
     "extra": {
         "laravel": {
             "providers": [
-                "Arpanext\\SwaggerApiLpkg\\App\\Providers\\AppServiceProvider"
+                "Arpanext\\SwaggerApi\\App\\Providers\\AppServiceProvider"
             ]
         }
     }

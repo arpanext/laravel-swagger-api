@@ -1,6 +1,6 @@
 <?php
 
-namespace Arpanext\SwaggerApiLpkg\App\Http\Controllers\Api\Schemas;
+namespace Arpanext\SwaggerApi\App\Http\Controllers\Api\Schemas;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -15,7 +15,7 @@ class ShowController extends Controller
      */
     public function __invoke(Request $request, $key)
     {
-        $openapi = \OpenApi\scan(base_path(config('vendor.arpanext.swagger-api-lpkg.schemas')[$key]['controllers_path']));
+        $openapi = \OpenApi\scan(base_path(config('vendor.arpanext.swagger-api.schemas')[$key]['controllers_path']));
 
         return response()->json(json_decode($openapi->toJson()));
     }

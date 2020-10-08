@@ -1,6 +1,6 @@
 <?php
 
-namespace Arpanext\SwaggerApiLpkg\App\Providers;
+namespace Arpanext\SwaggerApi\App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -15,12 +15,12 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->router->group(
             [
-                'namespace' => 'Arpanext\SwaggerApiLpkg\App\Http\Controllers\Api\Schemas',
+                'namespace' => 'Arpanext\SwaggerApi\App\Http\Controllers\Api\Schemas',
                 'middleware' => [
                     //
                 ],
-                'as' => 'api.v1.swagger-api-lpkg.schemas.',
-                'prefix' => '/api/v1/swagger-api-lpkg/schemas',
+                'as' => 'api.v1.swagger-api.schemas.',
+                'prefix' => '/api/v1/swagger-api/schemas',
             ],
             function () {
                 require __DIR__ . '/../../routes/api.php';
@@ -29,8 +29,8 @@ class AppServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../../config' => config_path('vendor/arpanext/swagger-api-lpkg'),
-            ], 'swagger-api-lpkg');
+                __DIR__ . '/../../config' => config_path('vendor/arpanext/swagger-api'),
+            ], 'swagger-api');
         }
     }
 
@@ -41,10 +41,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        if (is_null($this->app['config']->get('vendor.arpanext.swagger-api-lpkg.schemas'))) {
+        if (is_null($this->app['config']->get('vendor.arpanext.swagger-api.schemas'))) {
             $this->mergeConfigFrom(
                 __DIR__ . '/../../config/schemas.php',
-                'vendor.arpanext.swagger-api-lpkg.schemas'
+                'vendor.arpanext.swagger-api.schemas'
             );
         }
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Arpanext\SwaggerApiLpkg\App\Http\Controllers\Api\Schemas;
+namespace Arpanext\SwaggerApi\App\Http\Controllers\Api\Schemas;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -17,8 +17,8 @@ class IndexController extends Controller
     {
         return array_map(function ($key) {
             return [
-                'url' => route('api.v1.swagger-api-lpkg.schemas.show', $key),
+                'url' => route('api.v1.swagger-api.schemas.show', $key),
             ];
-        }, array_keys(config('vendor.arpanext.swagger-api-lpkg.schemas')));
+        }, array_keys(config('vendor.arpanext.swagger-api.schemas')));
     }
 }
