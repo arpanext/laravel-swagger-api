@@ -28,7 +28,7 @@ jobs:
       run: mkdir -p app/Http/Controllers/Api
     - name: cp -r /tmp/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
       working-directory: ./laravel
-      run: cp /tmp/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
+      run: cp -r /tmp/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
     - name: vendor/bin/phpunit tests/
       working-directory: ./laravel
       run: vendor/bin/phpunit tests/
