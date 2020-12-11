@@ -1,0 +1,32 @@
+name: Laravel
+
+on:
+  push:
+    branches: [ master ]
+  #pull_request:
+  #  branches: [ master ]
+
+jobs:
+  laravel-tests:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: composer create-project laravel/laravel laravel
+      run: composer create-project laravel/laravel laravel
+    - name: cd laravel
+      run: cd laravel
+    - name: composer require arpanext/laravel-swagger-api
+      run: composer require arpanext/laravel-swagger-api
+    - name: php artisan vendor:publish --provider=Arpanext\\SwaggerApi\\App\\Providers\\AppServiceProvider
+      run: php artisan vendor:publish --provider=Arpanext\\SwaggerApi\\App\\Providers\\AppServiceProvider
+    - name: git clone https://github.com/zircote/swagger-php.git /tmp/swagger-php
+      run: git clone https://github.com/zircote/swagger-php.git /tmp/swagger-php
+    - name: mkdir -p app/Http/Controllers/Api
+      run: mkdir -p app/Http/Controllers/Api
+    - name: cp /tmp/swagger-php/Examples/petstore-3.0 app/Http/Controllers/Api/petstore-3.0
+      run: cp /tmp/swagger-php/Examples/petstore-3.0 app/Http/Controllers/Api/petstore-3.0
+    - name: vendor/bin/phpunit tests/
+      run: vendor/bin/phpunit tests/
+
+
