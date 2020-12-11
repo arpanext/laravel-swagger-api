@@ -14,19 +14,23 @@ jobs:
     steps:
     - name: composer create-project laravel/laravel laravel
       run: composer create-project laravel/laravel laravel
-    - name: cd laravel
-      run: cd laravel
     - name: composer require arpanext/laravel-swagger-api
+      working-directory: ./laravel
       run: composer require arpanext/laravel-swagger-api
     - name: php artisan vendor:publish --provider=Arpanext\\SwaggerApi\\App\\Providers\\AppServiceProvider
+      working-directory: ./laravel
       run: php artisan vendor:publish --provider=Arpanext\\SwaggerApi\\App\\Providers\\AppServiceProvider
     - name: git clone https://github.com/zircote/swagger-php.git /tmp/swagger-php
+      working-directory: ./laravel
       run: git clone https://github.com/zircote/swagger-php.git /tmp/swagger-php
     - name: mkdir -p app/Http/Controllers/Api
+      working-directory: ./laravel
       run: mkdir -p app/Http/Controllers/Api
-    - name: cp /tmp/swagger-php/Examples/petstore-3.0 app/Http/Controllers/Api/petstore-3.0
-      run: cp /tmp/swagger-php/Examples/petstore-3.0 app/Http/Controllers/Api/petstore-3.0
+    - name: cp /tmp/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
+      working-directory: ./laravel
+      run: cp /tmp/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
     - name: vendor/bin/phpunit tests/
+      working-directory: ./laravel
       run: vendor/bin/phpunit tests/
 
 
