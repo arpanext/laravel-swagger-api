@@ -19,8 +19,8 @@ class AppServiceProvider extends ServiceProvider
                 'middleware' => [
                     //
                 ],
-                'as' => 'api.v1.swagger-api.schemas.',
-                'prefix' => '/api/v1/swagger-api/schemas',
+                'as' => 'api.v1.swagger.schemas.',
+                'prefix' => '/api/v1/swagger/schemas',
             ],
             function () {
                 require __DIR__ . '/../../routes/api.php';

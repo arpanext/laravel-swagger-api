@@ -17,7 +17,7 @@ class IndexController extends Controller
     {
         return array_map(function ($key) {
             return [
-                'url' => route('api.v1.swagger-api.schemas.show', $key),
+                'url' => route('api.v1.swagger.schemas.show', $key),
             ];
         }, array_keys(config('vendor.arpanext.swagger-api.schemas')));
     }
