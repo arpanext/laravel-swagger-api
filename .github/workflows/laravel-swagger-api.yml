@@ -13,16 +13,14 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - name: Create temp directory
+    - name: Create temp packages directory
       run: mkdir -p /tmp/packages/arpanext/laravel-swagger-api
-    - name: Move package source to temp directory
-      run: mv -v ./* /tmp/packages/arpanext/laravel-swagger-api
-    - name: test
-      run: ls -la
+    - name: Move package source to temp packages directory
+      run: mv -v $(ls -A .) /tmp/packages/arpanext/laravel-swagger-api
     - name: Installa Laravel via Composer
       run: composer create-project laravel/laravel .
-    - name: Move package to the current laravel project
-      run: mv -v /tmp/packages ./
+    - name: Move packages to the current laravel project
+      run: mv -v /tmp/packages .
     - name: Install the package
       run: sed '/"require"/i "repositories":[{ "type":"path","url":"./packages/arpanext/laravel-swagger-api","options":{"symlink":true}}],' composer.json
     - name: composer
