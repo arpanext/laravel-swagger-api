@@ -1,4 +1,4 @@
-name: Laravel
+name: laravel-swagger-api
 
 on:
   push:
