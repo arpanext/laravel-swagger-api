@@ -33,6 +33,8 @@ jobs:
         run: mkdir -p app/Http/Controllers/Api
       - name: Copy example
         run: cp -r ./vendor/zircote/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
+      - name: Run
+        run: php artisan serve
       - name: Run tests
         run: vendor/bin/phpunit packages/arpanext/laravel-swagger-api --configuration=packages/arpanext/laravel-swagger-api/phpunit.xml
 
