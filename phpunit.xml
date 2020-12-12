@@ -6,9 +6,6 @@
         <include>
             <directory suffix=".php">./src</directory>
         </include>
-        <exclude>
-            <directory suffix=".php">./src/routes</directory>
-        </exclude>
     </coverage>
     <testsuites>
         <testsuite name="Unit">
