@@ -1,21 +1,31 @@
 # Laravel Swagger Api
 
+#### Install
+
 ```shell script
 composer require arpanext/laravel-swagger-api
 ```
 
-```shell script
-php artisan vendor:publish --tag="swagger-api"
-```
+#### Publish
 
 ```shell script
-php artisan vendor:publish --provider=Arpanext\\SwaggerApi\\App\\Providers\\AppServiceProvider
+php artisan vendor:publish --provider=Arpanext\\SwaggerApi\\App\\Providers\\AppServiceProvider --tag="swagger-api"
+```
+
+#### Tests
+
+```shell
+vendor/bin/phpunit vendor/arpanext/laravel-swagger-api --configuration=vendor/arpanext/laravel-swagger-api/phpunit.xml --do-not-cache-result --coverage-html coverage/html/laravel-swagger-api
+```
+
+#### Examples
+
+```shell
+mkdir -p app/Http/Controllers/Api
 ```
 
 ```shell
-git clone https://github.com/zircote/swagger-php.git /tmp/swagger-php
-mkdir -p app/Http/Controllers/Api
-cp /tmp/swagger-php/Examples/petstore-3.0 app/Http/Controllers/Api/petstore-3.0
+cp -r ./vendor/zircote/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
 ```
 
 ```shell script

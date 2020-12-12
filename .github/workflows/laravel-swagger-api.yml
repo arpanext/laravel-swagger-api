@@ -12,28 +12,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Create temp folder
-      run: mkdir -p /tmp/packages/arpanext/laravel-swagger-api
-    - name: Move source
-      run: mv -v $(ls -A .) /tmp/packages/arpanext/laravel-swagger-api
-    - name: Create a project
-      run: composer create-project laravel/laravel .
-    - name: Move source
-      run: mv -v /tmp/packages .
-    - name: Update composer.json
-      run: sed -i '/"require"/i \ \ \ \ "repositories":[{ "type":"path","url":"./packages/arpanext/laravel-swagger-api","options":{"symlink":true}}],' ./composer.json  
-    - name: Dumps the autoloader
-      run: composer dumpautoload
-    - name: Install
-      run: composer require arpanext/laravel-swagger-api
-    - name: Publish
-      run: php artisan vendor:publish --provider=Arpanext\\SwaggerApi\\App\\Providers\\AppServiceProvider
-    - name: mkdir -p app/Http/Controllers/Api
-      run: mkdir -p app/Http/Controllers/Api
-    - name: Copy example
-      run: cp -r ./vendor/zircote/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
-    - name: Run tests
-      run: vendor/bin/phpunit tests/
+      - uses: actions/checkout@v2
+      - name: Create temp folder
+        run: mkdir -p /tmp/packages/arpanext/laravel-swagger-api
+      - name: Move source
+        run: mv -v $(ls -A .) /tmp/packages/arpanext/laravel-swagger-api
+      - name: Create a project
+        run: composer create-project laravel/laravel .
+      - name: Move source
+        run: mv -v /tmp/packages .
+      - name: Update composer.json
+        run: sed -i '/"require"/i \ \ \ \ "repositories":[{ "type":"path","url":"./packages/arpanext/laravel-swagger-api","options":{"symlink":true}}],' ./composer.json
+      - name: Dumps the autoloader
+        run: composer dumpautoload
+      - name: Install
+        run: composer require arpanext/laravel-swagger-api
+      - name: Publish
+        run: php artisan vendor:publish --provider=Arpanext\\SwaggerApi\\App\\Providers\\AppServiceProvider
+      - name: mkdir -p app/Http/Controllers/Api
+        run: mkdir -p app/Http/Controllers/Api
+      - name: Copy example
+        run: cp -r ./vendor/zircote/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
+      - name: Run tests
+        run: vendor/bin/phpunit packages/arpanext/laravel-swagger-api --configuration=packages/arpanext/laravel-swagger-api/phpunit.xml
 
 
