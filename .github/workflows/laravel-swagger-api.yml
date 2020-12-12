@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v2
     - name: Create temp directory
       run: mkdir -p /tmp/packages/arpanext/laravel-swagger-api
     - name: Move package source to temp directory
