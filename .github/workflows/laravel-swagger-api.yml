@@ -12,25 +12,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: composer create-project laravel/laravel laravel
-      run: composer create-project laravel/laravel laravel
-    - name: composer require arpanext/laravel-swagger-api
-      working-directory: ./laravel
+    - name: Create temp directory
+      run: mkdir -p /tmp/packages/arpanext/laravel-swagger-api
+    - name: Move package source to temp directory
+      run: mv ./* /tmp/packages/arpanext/laravel-swagger-api
+    - name: Installa Laravel via Composer
+      run: composer create-project laravel/laravel .
+    - name: Move package to the current laravel project
+      run: mv /tmp/packages ./
+    - name: Install the package
+      run: sed '/"require"/i "repositories":[{ "type":"path","url":"./packages/arpanext/laravel-swagger-api","options":{"symlink":true}}],' composer.json
+    - name: composer
+      run: composer dumpautoload
+    - name: install
       run: composer require arpanext/laravel-swagger-api
     - name: php artisan vendor:publish --provider=Arpanext\\SwaggerApi\\App\\Providers\\AppServiceProvider
-      working-directory: ./laravel
       run: php artisan vendor:publish --provider=Arpanext\\SwaggerApi\\App\\Providers\\AppServiceProvider
     - name: git clone https://github.com/zircote/swagger-php.git /tmp/swagger-php
-      working-directory: ./laravel
       run: git clone https://github.com/zircote/swagger-php.git /tmp/swagger-php
     - name: mkdir -p app/Http/Controllers/Api
-      working-directory: ./laravel
       run: mkdir -p app/Http/Controllers/Api
     - name: cp -r /tmp/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
-      working-directory: ./laravel
       run: cp -r /tmp/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
     - name: vendor/bin/phpunit tests/
-      working-directory: ./laravel
       run: vendor/bin/phpunit tests/
 
 
