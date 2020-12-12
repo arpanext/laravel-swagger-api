@@ -3,17 +3,17 @@
 namespace Arpanext\SwaggerApi\App\Http\Controllers\Api\Schemas;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class ShowController extends Controller
 {
     /**
      * Handle the incoming request.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param string $key
+     * @return Response
      */
-    public function __invoke(Request $request, $key)
+    public function __invoke(string $key): JsonResponse
     {
         $openapi = \OpenApi\scan(base_path(config('vendor.arpanext.swagger-api.schemas')[$key]['path']));
 
