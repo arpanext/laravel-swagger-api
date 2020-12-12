@@ -33,7 +33,7 @@ jobs:
       run: mkdir -p app/Http/Controllers/Api
     - name: Copy example
       run: cp -r ./vendor/zircote/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
-    - name: Run test
+    - name: Run tests
       run: vendor/bin/phpunit tests/
 
 
