@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class SchemasIndexTest extends TestCase
 {
@@ -13,14 +13,14 @@ class SchemasIndexTest extends TestCase
      */
     public function testShow()
     {
-        $schemas = file_get_contents('http://127.0.0.1:8000/api/v1/swagger/schemas');
+        $response = $this->get('http://127.0.0.1:8000/api/v1/swagger/schemas');
 
-        $schemasObjects = json_decode($schemas);
+        $response = json_decode($response->content());
 
-        $this->assertGreaterThanOrEqual(1, count($schemasObjects));
+        $this->assertGreaterThanOrEqual(1, count($response));
 
-        foreach ($schemasObjects as $schemasObject) {
-            $this->assertObjectHasAttribute('url', $schemasObject);
+        foreach ($response as $schema) {
+            $this->assertObjectHasAttribute('url', $schema);
         }
     }
 }

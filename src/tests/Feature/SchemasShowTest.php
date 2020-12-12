@@ -2,7 +2,7 @@
 
 namespace Tests\Feature;
 
-use PHPUnit\Framework\TestCase;
+use Tests\TestCase;
 
 class SchemasShowTest extends TestCase
 {
@@ -13,10 +13,10 @@ class SchemasShowTest extends TestCase
      */
     public function testShow()
     {
-        $schema = file_get_contents('http://127.0.0.1:8000/api/v1/swagger/schemas/swagger.json');
+        $response = $this->get('http://127.0.0.1:8000/api/v1/swagger/schemas/swagger.json');
 
-        $schemasObject = json_decode($schema);
+        $response = json_decode($response->content());
 
-        $this->assertObjectHasAttribute('openapi', $schemasObject);
+        $this->assertObjectHasAttribute('openapi', $response);
     }
 }
