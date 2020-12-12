@@ -22,7 +22,7 @@ jobs:
     - name: Move source
       run: mv -v /tmp/packages .
     - name: Update composer.json
-      run: sed '/"require"/i "repositories":[{ "type":"path","url":"./packages/arpanext/laravel-swagger-api","options":{"symlink":true}}],' ./composer.json > ./composer.json
+      run: sed -i '/"require"/i \ \ \ \ "repositories":[{ "type":"path","url":"./packages/arpanext/laravel-swagger-api","options":{"symlink":true}}],' ./composer.json  
     - name: Dumps the autoloader
       run: composer dumpautoload
     - name: Install
