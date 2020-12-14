@@ -44,7 +44,7 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: artifact
-          path: ./project.zip
+          path: ${{ github.workspace }}/project.zip
       - name: Unzip
         run: unzip -l ./project.zip
       - name: Run tests
