@@ -34,11 +34,11 @@ jobs:
       - name: Create artifact folder
         run: mkdir -p artifact
       - name: Compress
-        run: tar -zcvf artifact/project.tar.gz --exclude=./artifact .
+        run: tar -cvf artefacts/project.tar --exclude=./artefacts .
       - uses: actions/upload-artifact@v2
         with:
           name: artifact
-          path: artifact/project.tar.gz
+          path: artifact/project.tar
   tests:
     needs: [install]
     runs-on: ubuntu-latest
@@ -46,13 +46,13 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: artifact
-          path: project.tar.gz
+          path: project.tar
       - name: pwd
         run: pwd
       - name: ls -la
         run: ls -la
       - name: Decompress
-        run: tar -xzvf project.tar.gz
+        run: tar -xvf project.tar
       - name: Run tests
         run: vendor/bin/phpunit packages/arpanext/laravel-swagger-api --configuration=packages/arpanext/laravel-swagger-api/phpunit.xml --coverage-text
       
