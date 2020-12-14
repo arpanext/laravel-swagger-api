@@ -35,8 +35,8 @@ jobs:
         run: mkdir -p artifact
       - name: Compress
         run: tar -cvf artifact/project.tar --exclude=./artifact .
-      - name: ls -la
-        run: ls -la
+      - name: ls -la artifact
+        run: ls -la artifact
       - uses: actions/upload-artifact@v2
         with:
           name: artifact
