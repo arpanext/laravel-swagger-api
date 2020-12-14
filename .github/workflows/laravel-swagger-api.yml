@@ -8,9 +8,7 @@ on:
 
 jobs:
   install:
-
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v2
       - name: Create a temp folder
@@ -33,11 +31,18 @@ jobs:
         run: mkdir -p app/Http/Controllers/Api
       - name: Copy examples to the controllers api folder
         run: cp -r ./vendor/zircote/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
-
+      - uses: actions/upload-artifact@master
+        with:
+          name: artifact
+          path: .
   tests:
     needs: [install]
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/download-artifact@master
+        with:
+          name: artifact
+          path: .
       - name: Run tests
         run: vendor/bin/phpunit packages/arpanext/laravel-swagger-api --configuration=packages/arpanext/laravel-swagger-api/phpunit.xml --coverage-text
       
