@@ -34,7 +34,7 @@ jobs:
       - name: Zip
         run: zip -r project.zip .
       - name: Delete
-        run: rm -rvf !(project.zip)
+        run: rm -rvf !("project.zip")
       - uses: actions/upload-artifact@master
         with:
           name: artifact
