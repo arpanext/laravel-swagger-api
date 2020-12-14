@@ -31,12 +31,12 @@ jobs:
         run: mkdir -p app/Http/Controllers/Api
       - name: Copy examples to the controllers api folder
         run: cp -r ./vendor/zircote/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
-      - name: Zip
-        run: zip -r project.zip .
+      - name: Compress
+        run: tar -czvf project.tar.gz .
       - uses: actions/upload-artifact@v2
         with:
           name: artifact
-          path: project.zip
+          path: project.tar.gz
   tests:
     needs: [install]
     runs-on: ubuntu-latest
@@ -44,15 +44,13 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: artifact
-          path: project.zip
+          path: project.tar.gz
       - name: pwd
         run: pwd
       - name: ls -la
         run: ls -la
-      - name: chmod 777 project.zip
-        run: chmod 777 project.zip
-      - name: Unzip
-        run: unzip -l project.zip
+      - name: Decompress
+        run: tar -xzvf project.tar.gz
       - name: Run tests
         run: vendor/bin/phpunit packages/arpanext/laravel-swagger-api --configuration=packages/arpanext/laravel-swagger-api/phpunit.xml --coverage-text
       
