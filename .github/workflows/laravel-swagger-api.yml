@@ -31,12 +31,14 @@ jobs:
         run: mkdir -p app/Http/Controllers/Api
       - name: Copy examples to the controllers api folder
         run: cp -r ./vendor/zircote/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
+      - name: Create artifact folder
+        run: mkdir -p artifact
       - name: Compress
-        run: tar -czvf project.tar.gz .
+        run: tar -zcvf artifact/project.tar.gz --exclude=./artifact .
       - uses: actions/upload-artifact@v2
         with:
           name: artifact
-          path: project.tar.gz
+          path: artifact/project.tar.gz
   tests:
     needs: [install]
     runs-on: ubuntu-latest
