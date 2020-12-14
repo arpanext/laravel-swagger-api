@@ -45,6 +45,12 @@ jobs:
         with:
           name: artifact
           path: project.zip
+      - name: pwd
+        run: pwd
+      - name: ls -la
+        run: ls -la
+      - name: find / -name project
+        run: find / -name project
       - name: Unzip
         run: unzip -l project.zip
       - name: Run tests
