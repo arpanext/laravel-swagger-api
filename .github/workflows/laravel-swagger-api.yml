@@ -49,10 +49,8 @@ jobs:
         run: pwd
       - name: ls -la
         run: ls -la
-      - name: find / -name project
-        run: find / -name project
       - name: Unzip
-        run: unzip -l project.zip
+        run: unzip -l ./project.zip
       - name: Run tests
         run: vendor/bin/phpunit packages/arpanext/laravel-swagger-api --configuration=packages/arpanext/laravel-swagger-api/phpunit.xml --coverage-text
       
