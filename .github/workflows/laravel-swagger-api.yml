@@ -34,7 +34,7 @@ jobs:
       - name: Create artifact folder
         run: mkdir -p artifact
       - name: Compress
-        run: tar -cvf artefacts/project.tar --exclude=./artefacts .
+        run: tar -cvf artifact/project.tar --exclude=./artifact .
       - uses: actions/upload-artifact@v2
         with:
           name: artifact
