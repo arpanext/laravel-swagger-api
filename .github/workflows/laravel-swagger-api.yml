@@ -33,7 +33,7 @@ jobs:
         run: cp -r ./vendor/zircote/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
       - name: Zip
         run: zip -r project.zip .
-      - uses: actions/upload-artifact@master
+      - uses: actions/upload-artifact@v2
         with:
           name: artifact
           path: project.zip
@@ -41,12 +41,12 @@ jobs:
     needs: [install]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@master
+      - uses: actions/download-artifact@v2
         with:
           name: artifact
-          path: ${{ github.workspace }}/project.zip
+          path: project.zip
       - name: Unzip
-        run: unzip -l /home/runner/work/laravel-swagger-api/laravel-swagger-api/project.zip
+        run: unzip -l project.zip
       - name: Run tests
         run: vendor/bin/phpunit packages/arpanext/laravel-swagger-api --configuration=packages/arpanext/laravel-swagger-api/phpunit.xml --coverage-text
       
