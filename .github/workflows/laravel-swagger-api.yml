@@ -46,7 +46,7 @@ jobs:
           name: artifact
           path: ${{ github.workspace }}/project.zip
       - name: Unzip
-        run: unzip -l ./project.zip
+        run: unzip -l /home/runner/work/laravel-swagger-api/laravel-swagger-api/project.zip
       - name: Run tests
         run: vendor/bin/phpunit packages/arpanext/laravel-swagger-api --configuration=packages/arpanext/laravel-swagger-api/phpunit.xml --coverage-text
       
