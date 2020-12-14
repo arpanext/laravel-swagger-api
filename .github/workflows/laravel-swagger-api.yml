@@ -44,9 +44,9 @@ jobs:
       - uses: actions/download-artifact@master
         with:
           name: artifact
-          path: project.zip
+          path: ./project.zip
       - name: Unzip
-        run: unzip -l project.zip
+        run: unzip -l ./project.zip
       - name: Run tests
         run: vendor/bin/phpunit packages/arpanext/laravel-swagger-api --configuration=packages/arpanext/laravel-swagger-api/phpunit.xml --coverage-text
       
