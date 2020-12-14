@@ -51,6 +51,8 @@ jobs:
         run: pwd
       - name: ls -la
         run: ls -la
+      - name: ls -la project.tar
+        run: ls -la project.tar
       - name: Decompress
         run: tar -xvf project.tar
       - name: Run tests
