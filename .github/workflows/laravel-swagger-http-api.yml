@@ -1,4 +1,4 @@
-name: laravel-swagger-api
+name: laravel-swagger-http-api
 
 on:
   push:
@@ -12,19 +12,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Create a temp folder
-        run: mkdir -p /tmp/packages/arpanext/laravel-swagger-api
+        run: mkdir -p /tmp/packages/arpanext/laravel-swagger-http-api
       - name: Move the package source
-        run: mv -v $(ls -A .) /tmp/packages/arpanext/laravel-swagger-api
+        run: mv -v $(ls -A .) /tmp/packages/arpanext/laravel-swagger-http-api
       - name: Create a laravel project
         run: composer create-project laravel/laravel .
       - name: Move the package source
         run: mv -v /tmp/packages .
       - name: Register the package into the composer.json
-        run: sed -i '/"require"/i \ \ \ \ "repositories":[{ "type":"path","url":"./packages/arpanext/laravel-swagger-api","options":{"symlink":true}}],' ./composer.json
+        run: sed -i '/"require"/i \ \ \ \ "repositories":[{ "type":"path","url":"./packages/arpanext/laravel-swagger-http-api","options":{"symlink":true}}],' ./composer.json
       - name: Dumps the autoloader
         run: composer dumpautoload
       - name: Install the package
-        run: composer require arpanext/laravel-swagger-api
+        run: composer require arpanext/laravel-swagger-http-api
       - name: Publish the package config
         run: php artisan vendor:publish --provider=Arpanext\\SwaggerApi\\App\\Providers\\AppServiceProvider --tag="config"
       - name: Create a controllers api folder
@@ -48,6 +48,6 @@ jobs:
       - name: Extract archive
         run: tar -xzvf /tmp/project.tar.gz
       - name: Run tests
-        run: vendor/bin/phpunit packages/arpanext/laravel-swagger-api --configuration=packages/arpanext/laravel-swagger-api/phpunit.xml --coverage-text
+        run: vendor/bin/phpunit packages/arpanext/laravel-swagger-http-api --configuration=packages/arpanext/laravel-swagger-http-api/phpunit.xml --coverage-text
       
 
