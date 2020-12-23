@@ -1,4 +1,4 @@
-# Laravel Swagger Http Api
+# Laravel Swagger Api
 
 ## Installation
 
