@@ -5,7 +5,7 @@
 Install the package via composer:
 
 ```shell script
-composer require arpanext/laravel-swagger-http-api
+composer require arpanext/laravel-swagger-api
 ```
 
 Publish the config file with:
@@ -52,5 +52,5 @@ curl http://127.0.0.1:8000/api/v1/swagger/schemas/swagger.json
 ## Testing
 
 ```shell
-vendor/bin/phpunit vendor/arpanext/laravel-swagger-http-api --configuration=vendor/arpanext/laravel-swagger-http-api/phpunit.xml --do-not-cache-result --coverage-text --coverage-html=coverage/html/laravel-swagger-http-api
+vendor/bin/phpunit vendor/arpanext/laravel-swagger-api --configuration=vendor/arpanext/laravel-swagger-api/phpunit.xml --do-not-cache-result --coverage-text --coverage-html=coverage/html/laravel-swagger-api
 ```
