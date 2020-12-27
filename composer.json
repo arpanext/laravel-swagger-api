@@ -1,5 +1,5 @@
 {
-    "name": "arpanext/laravel-swagger-api",
+    "name": "arpanext/laravel-swagger-schemas",
     "authors": [
         {
             "name": "Arpanext",
@@ -13,14 +13,14 @@
     },
     "autoload": {
         "psr-4": {
-            "Arpanext\\SwaggerApi\\": "/src/"
+            "Arpanext\\Swagger\\Schemas\\": "/src/"
         }
     },
     "minimum-stability": "dev",
     "extra": {
         "laravel": {
             "providers": [
-                "Arpanext\\SwaggerApi\\App\\Providers\\AppServiceProvider"
+                "Arpanext\\Swagger\\Schemas\\App\\Providers\\AppServiceProvider"
             ]
         }
     }

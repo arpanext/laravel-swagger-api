@@ -1,6 +1,6 @@
 <?php
 
-namespace Arpanext\SwaggerApi\App\Http\Controllers\Api\Schemas;
+namespace Arpanext\SwaggerSchemas\App\Http\Controllers\Api\Swagger\Schemas;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
@@ -18,7 +18,7 @@ class IndexController extends Controller
             return [
                 'url' => route('api.v1.swagger.schemas.show', $key),
             ];
-        }, array_keys(config('vendor.arpanext.swagger-api.schemas')));
+        }, array_keys(config('vendor.arpanext.swagger.schemas.index')));
 
         return response()->json($schema);
     }

@@ -1,17 +1,17 @@
-# Laravel Swagger Api
+# Laravel Swagger Schemas
 
 ## Installation
 
 Install the package via composer:
 
 ```shell script
-composer require arpanext/laravel-swagger-api
+composer require arpanext/laravel-swagger-schemas
 ```
 
 Publish the config file with:
 
 ```shell script
-php artisan vendor:publish --provider=Arpanext\\SwaggerApi\\App\\Providers\\AppServiceProvider --tag="config"
+php artisan vendor:publish --provider=Arpanext\\SwaggerSchemas\\App\\Providers\\AppServiceProvider --tag="swagger-schemas"
 ```
 
 ## Examples
@@ -36,8 +36,8 @@ php artisan route:list
 +--------+----------+-----------------------------------+------------------------------+----------------------------------------------------------------------+------------+
 | Domain | Method   | URI                               | Name                         | Action                                                               | Middleware |
 +--------+----------+-----------------------------------+------------------------------+----------------------------------------------------------------------+------------+
-|        | GET|HEAD | api/v1/swagger/schemas            | api.v1.swagger.schemas.index | Arpanext\SwaggerApi\App\Http\Controllers\Api\Schemas\IndexController |            |
-|        | GET|HEAD | api/v1/swagger/schemas/{key}.json | api.v1.swagger.schemas.show  | Arpanext\SwaggerApi\App\Http\Controllers\Api\Schemas\ShowController  |            |
+|        | GET|HEAD | api/v1/swagger/schemas            | api.v1.swagger.schemas.index | Arpanext\SwaggerSchemas\App\Http\Controllers\Api\Schemas\IndexController |            |
+|        | GET|HEAD | api/v1/swagger/schemas/{key}.json | api.v1.swagger.schemas.show  | Arpanext\SwaggerSchemas\App\Http\Controllers\Api\Schemas\ShowController  |            |
 +--------+----------+-----------------------------------+------------------------------+----------------------------------------------------------------------+------------+
 ```
 
@@ -52,5 +52,5 @@ curl http://127.0.0.1:8000/api/v1/swagger/schemas/swagger.json
 ## Testing
 
 ```shell
-vendor/bin/phpunit vendor/arpanext/laravel-swagger-api --configuration=vendor/arpanext/laravel-swagger-api/phpunit.xml --do-not-cache-result --coverage-text --coverage-html=coverage/html/laravel-swagger-api
+vendor/bin/phpunit vendor/arpanext/laravel-swagger-schemas --configuration=vendor/arpanext/laravel-swagger-schemas/phpunit.xml --do-not-cache-result --coverage-text --coverage-html=coverage/html/laravel-swagger-schemas
 ```

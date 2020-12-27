@@ -1,6 +1,6 @@
 <?php
 
-namespace Arpanext\SwaggerApi\App\Providers;
+namespace Arpanext\SwaggerSchemas\App\Providers;
 
 use Config;
 use Illuminate\Support\ServiceProvider;
@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->router->group(
             [
-                'namespace' => 'Arpanext\SwaggerApi\App\Http\Controllers\Api\Schemas',
+                'namespace' => 'Arpanext\SwaggerSchemas\App\Http\Controllers\Api\Swagger\Schemas',
                 'middleware' => [
                     //
                 ],
@@ -30,8 +30,8 @@ class AppServiceProvider extends ServiceProvider
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__ . '/../../config' => config_path('vendor/arpanext/swagger-api'),
-            ], 'config');
+                __DIR__ . '/../../config' => config_path('vendor/arpanext'),
+            ], 'swagger-schemas');
         }
     }
 
@@ -42,6 +42,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        Config::get('vendor.arpanext.swagger-api.schemas') ?: $this->mergeConfigFrom(__DIR__ . '/../../config/schemas.php', 'vendor.arpanext.swagger-api.schemas');
+        Config::get('vendor.arpanext.swagger.schemas.index') ?: $this->mergeConfigFrom(__DIR__ . '/../../config/schemas.php', 'vendor.arpanext.swagger.schemas.index');
     }
 }
