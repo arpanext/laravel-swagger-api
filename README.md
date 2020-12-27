@@ -14,18 +14,14 @@ Publish the config file with:
 php artisan vendor:publish --provider=Arpanext\\Swagger\\Schemas\\App\\Providers\\AppServiceProvider --tag="swagger-schemas"
 ```
 
-## Examples
+Update the coofig file in config/vendor/arpanext/swagger/schemas/index.php:
 
-Create a controllers api folder:
-
-```shell
-mkdir -p app/Http/Controllers/Api
-```
-
-Copy examples to the controllers api folder:
-
-```shell
-cp -r ./vendor/zircote/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
+```php
+return [
+    'swagger' => [
+        'path' => 'app/Http/Controllers/Api',
+    ],
+];
 ```
 
 ```shell
@@ -33,12 +29,12 @@ php artisan route:list
 ```
 
 ```shell
-+--------+----------+-----------------------------------+------------------------------+----------------------------------------------------------------------+------------+
-| Domain | Method   | URI                               | Name                         | Action                                                               | Middleware |
-+--------+----------+-----------------------------------+------------------------------+----------------------------------------------------------------------+------------+
-|        | GET|HEAD | api/v1/swagger/schemas            | api.v1.swagger.schemas.index | Arpanext\Swagger\Schemas\App\Http\Controllers\Api\Schemas\IndexController |            |
-|        | GET|HEAD | api/v1/swagger/schemas/{key}.json | api.v1.swagger.schemas.show  | Arpanext\Swagger\Schemas\App\Http\Controllers\Api\Schemas\ShowController  |            |
-+--------+----------+-----------------------------------+------------------------------+----------------------------------------------------------------------+------------+
++--------+----------+-----------------------------------+---------------------------------+-----------------------------------------------------------------------------------+------------+
+| Domain | Method   | URI                               | Name                            | Action                                                                            | Middleware |
++--------+----------+-----------------------------------+---------------------------------+-----------------------------------------------------------------------------------+------------+
+|        | GET|HEAD | api/v1/swagger/schemas            | api.v1.swagger.schemas.index    | Arpanext\Swagger\Schemas\App\Http\Controllers\Api\Swagger\Schemas\IndexController |            |
+|        | GET|HEAD | api/v1/swagger/schemas/{key}.json | api.v1.swagger.schemas.show     | Arpanext\Swagger\Schemas\App\Http\Controllers\Api\Swagger\Schemas\ShowController  |            |
++--------+----------+-----------------------------------+---------------------------------+-----------------------------------------------------------------------------------+------------+
 ```
 
 ```shell

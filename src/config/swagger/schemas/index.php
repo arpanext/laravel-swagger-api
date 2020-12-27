@@ -2,6 +2,6 @@
 
 return [
     'swagger' => [
-        'path' => 'app/Http/Controllers/Api',
+        'path' => 'vendor/zircote/swagger-php/Examples/petstore-3.0',
     ],
 ];
