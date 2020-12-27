@@ -26,7 +26,7 @@ jobs:
       - name: Install the package
         run: composer require arpanext/laravel-swagger-schemas
       - name: Publish the package config
-        run: php artisan vendor:publish --provider=Arpanext\\SwaggerSchemas\\App\\Providers\\AppServiceProvider --tag="config"
+        run: php artisan vendor:publish --provider=Arpanext\\Swagger\\Schemas\\App\\Providers\\AppServiceProvider --tag="swagger-schemas"
       - name: Create a controllers api folder
         run: mkdir -p app/Http/Controllers/Api
       - name: Copy examples to the controllers api folder

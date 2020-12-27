@@ -1,6 +1,6 @@
 <?php
 
-namespace Arpanext\SwaggerSchemas\App\Providers;
+namespace Arpanext\Swagger\Schemas\App\Providers;
 
 use Config;
 use Illuminate\Support\ServiceProvider;
