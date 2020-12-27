@@ -27,10 +27,6 @@ jobs:
         run: composer require arpanext/laravel-swagger-schemas
       - name: Publish the package config
         run: php artisan vendor:publish --provider=Arpanext\\Swagger\\Schemas\\App\\Providers\\AppServiceProvider --tag="swagger-schemas"
-      - name: Create a controllers api folder
-        run: mkdir -p app/Http/Controllers/Api
-      - name: Copy examples to the controllers api folder
-        run: cp -r ./vendor/zircote/swagger-php/Examples/petstore-3.0 ./app/Http/Controllers/Api/petstore-3.0
       - name: Create archive
         run: tar -czvf /tmp/project.tar.gz .
       - uses: actions/upload-artifact@v2
