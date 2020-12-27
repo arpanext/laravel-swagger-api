@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->router->group(
             [
-                'namespace' => 'Arpanext\SwaggerSchemas\App\Http\Controllers\Api\Swagger\Schemas',
+                'namespace' => 'Arpanext\Swagger\Schemas\App\Http\Controllers\Api\Swagger\Schemas',
                 'middleware' => [
                     //
                 ],

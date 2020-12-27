@@ -11,7 +11,7 @@ composer require arpanext/laravel-swagger-schemas
 Publish the config file with:
 
 ```shell script
-php artisan vendor:publish --provider=Arpanext\\SwaggerSchemas\\App\\Providers\\AppServiceProvider --tag="swagger-schemas"
+php artisan vendor:publish --provider=Arpanext\\Swagger\\Schemas\\App\\Providers\\AppServiceProvider --tag="swagger-schemas"
 ```
 
 ## Examples
@@ -36,8 +36,8 @@ php artisan route:list
 +--------+----------+-----------------------------------+------------------------------+----------------------------------------------------------------------+------------+
 | Domain | Method   | URI                               | Name                         | Action                                                               | Middleware |
 +--------+----------+-----------------------------------+------------------------------+----------------------------------------------------------------------+------------+
-|        | GET|HEAD | api/v1/swagger/schemas            | api.v1.swagger.schemas.index | Arpanext\SwaggerSchemas\App\Http\Controllers\Api\Schemas\IndexController |            |
-|        | GET|HEAD | api/v1/swagger/schemas/{key}.json | api.v1.swagger.schemas.show  | Arpanext\SwaggerSchemas\App\Http\Controllers\Api\Schemas\ShowController  |            |
+|        | GET|HEAD | api/v1/swagger/schemas            | api.v1.swagger.schemas.index | Arpanext\Swagger\Schemas\App\Http\Controllers\Api\Schemas\IndexController |            |
+|        | GET|HEAD | api/v1/swagger/schemas/{key}.json | api.v1.swagger.schemas.show  | Arpanext\Swagger\Schemas\App\Http\Controllers\Api\Schemas\ShowController  |            |
 +--------+----------+-----------------------------------+------------------------------+----------------------------------------------------------------------+------------+
 ```
 

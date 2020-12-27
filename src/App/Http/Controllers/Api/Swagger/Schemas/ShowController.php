@@ -1,6 +1,6 @@
 <?php
 
-namespace Arpanext\SwaggerSchemas\App\Http\Controllers\Api\Swagger\Schemas;
+namespace Arpanext\Swagger\Schemas\App\Http\Controllers\Api\Swagger\Schemas;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
