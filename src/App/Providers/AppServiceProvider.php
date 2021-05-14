@@ -42,6 +42,6 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        Config::get('vendor.arpanext.swagger.schemas') ?: $this->mergeConfigFrom(__DIR__ . '/../../config/swagger/schemas.php', 'vendor.arpanext.swagger.schemas');
+        Config::get('vendor.arpanext.swagger.schemas.api.schemas') ?: $this->mergeConfigFrom(__DIR__ . '/../../config/swagger/schemas/api/schemas.php', 'vendor.arpanext.swagger.schemas.api.schemas');
     }
 }

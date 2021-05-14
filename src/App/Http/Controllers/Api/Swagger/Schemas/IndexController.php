@@ -18,7 +18,7 @@ class IndexController extends Controller
             return [
                 'url' => route('api.v1.swagger.schemas.show', $key),
             ];
-        }, array_keys(config('vendor.arpanext.swagger.schemas')));
+        }, array_keys(config('vendor.arpanext.swagger.schemas.api.schemas')));
 
         return response()->json($schema);
     }
