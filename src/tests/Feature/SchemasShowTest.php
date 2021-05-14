@@ -13,7 +13,7 @@ class SchemasShowTest extends TestCase
      */
     public function testShow()
     {
-        $response = $this->get('http://127.0.0.1:8000/api/v1/swagger/schemas/swagger.json');
+        $response = $this->get('http://127.0.0.1:8000/api/v1/swagger/schemas/default.json');
 
         $response = json_decode($response->content());
 

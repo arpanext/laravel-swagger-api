@@ -14,7 +14,7 @@ Publish the config file with:
 php artisan vendor:publish --provider=Arpanext\\Swagger\\Schemas\\App\\Providers\\AppServiceProvider --tag="swagger-schemas-api"
 ```
 
-Update the coofig file in config/vendor/arpanext/swagger/schemas/index.php:
+Update the coofig file in config/vendor/arpanext/swagger/schemas.php:
 
 ```php
 return [

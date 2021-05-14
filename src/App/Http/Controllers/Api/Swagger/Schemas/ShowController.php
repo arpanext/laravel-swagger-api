@@ -15,7 +15,7 @@ class ShowController extends Controller
      */
     public function __invoke(string $key): JsonResponse
     {
-        $openapi = \OpenApi\scan(config('vendor.arpanext.swagger.schemas.index')[$key]['path']);
+        $openapi = \OpenApi\scan(config('vendor.arpanext.swagger.schemas')[$key]['path']);
 
         return response()->json(json_decode($openapi->toJson()));
     }
