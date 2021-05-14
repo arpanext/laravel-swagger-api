@@ -1,5 +1,5 @@
 {
-    "name": "arpanext/laravel-swagger-schemas",
+    "name": "arpanext/laravel-swagger-schemas-api",
     "authors": [
         {
             "name": "Arpanext",
@@ -8,19 +8,19 @@
     ],
     "require": {
         "php": ">=7.2",
-        "laravel/framework": "^6.0|^7.0|^8.0",
+        "laravel/framework": "^6.0|^7.3|^8.0",
         "zircote/swagger-php": "^3.1"
     },
     "autoload": {
         "psr-4": {
-            "Arpanext\\Swagger\\Schemas\\": "/src/"
+            "Arpanext\\Swagger\\Schemas\\Api\\": "/src/"
         }
     },
     "minimum-stability": "dev",
     "extra": {
         "laravel": {
             "providers": [
-                "Arpanext\\Swagger\\Schemas\\App\\Providers\\AppServiceProvider"
+                "Arpanext\\Swagger\\Schemas\\Api\\App\\Providers\\AppServiceProvider"
             ]
         }
     }

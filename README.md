@@ -5,13 +5,13 @@
 Install the package via composer:
 
 ```shell script
-composer require arpanext/laravel-swagger-schemas
+composer require arpanext/laravel-swagger-schemas-api
 ```
 
 Publish the config file with:
 
 ```shell script
-php artisan vendor:publish --provider=Arpanext\\Swagger\\Schemas\\App\\Providers\\AppServiceProvider --tag="swagger-schemas"
+php artisan vendor:publish --provider=Arpanext\\Swagger\\Schemas\\App\\Providers\\AppServiceProvider --tag="swagger-schemas-api"
 ```
 
 Update the coofig file in config/vendor/arpanext/swagger/schemas/index.php:
@@ -42,11 +42,11 @@ curl http://127.0.0.1:8000/api/v1/swagger/schemas
 ```
 
 ```shell
-curl http://127.0.0.1:8000/api/v1/swagger/schemas/swagger.json
+curl http://127.0.0.1:8000/api/v1/swagger/schemas/default.json
 ```
 
 ## Testing
 
 ```shell
-vendor/bin/phpunit vendor/arpanext/laravel-swagger-schemas --configuration=vendor/arpanext/laravel-swagger-schemas/phpunit.xml --do-not-cache-result --coverage-text --coverage-html=coverage/html/laravel-swagger-schemas
+vendor/bin/phpunit vendor/arpanext/laravel-swagger-schemas-api --configuration=vendor/arpanext/laravel-swagger-schemas-api/phpunit.xml --do-not-cache-result --coverage-text --coverage-html=coverage/html/laravel-swagger-schemas-api
 ```

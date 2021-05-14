@@ -1,6 +1,6 @@
 <?php
 
-namespace Arpanext\Swagger\Schemas\App\Providers;
+namespace Arpanext\Swagger\Schemas\Api\App\Providers;
 
 use Config;
 use Illuminate\Support\ServiceProvider;
@@ -16,7 +16,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->router->group(
             [
-                'namespace' => 'Arpanext\Swagger\Schemas\App\Http\Controllers\Api\Swagger\Schemas',
+                'namespace' => 'Arpanext\Swagger\Schemas\Api\App\Http\Controllers\Api\Swagger\Schemas',
                 'middleware' => [
                     //
                 ],
@@ -31,7 +31,7 @@ class AppServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../../config' => config_path('vendor/arpanext'),
-            ], 'swagger-schemas');
+            ], 'swagger-schemas-api');
         }
     }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Arpanext\Swagger\Schemas\App\Http\Controllers\Api\Swagger\Schemas;
+namespace Arpanext\Swagger\Schemas\Api\App\Http\Controllers\Api\Swagger\Schemas;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\JsonResponse;
@@ -15,7 +15,7 @@ class ShowController extends Controller
      */
     public function __invoke(string $key): JsonResponse
     {
-        $openapi = \OpenApi\scan(base_path(config('vendor.arpanext.swagger.schemas.index')[$key]['path']));
+        $openapi = \OpenApi\scan(config('vendor.arpanext.swagger.schemas.index')[$key]['path']);
 
         return response()->json(json_decode($openapi->toJson()));
     }
