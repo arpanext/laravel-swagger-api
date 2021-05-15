@@ -32,8 +32,8 @@ php artisan route:list
 +--------+----------+-----------------------------------+---------------------------------+-----------------------------------------------------------------------------------+------------+
 | Domain | Method   | URI                               | Name                            | Action                                                                            | Middleware |
 +--------+----------+-----------------------------------+---------------------------------+-----------------------------------------------------------------------------------+------------+
-|        | GET|HEAD | api/v1/swagger/schemas            | api.v1.swagger.schemas.index    | Arpanext\Swagger\Schemas\App\Http\Controllers\Api\Swagger\Schemas\IndexController |            |
-|        | GET|HEAD | api/v1/swagger/schemas/{key}.json | api.v1.swagger.schemas.show     | Arpanext\Swagger\Schemas\App\Http\Controllers\Api\Swagger\Schemas\ShowController  |            |
+|        | GET|HEAD | api/v1/swagger/schemas            | api.v1.swagger.schemas.index    | Arpanext\Swagger\Schemas\Api\App\Http\Controllers\Api\Swagger\Schemas\IndexController |            |
+|        | GET|HEAD | api/v1/swagger/schemas/{key}.json | api.v1.swagger.schemas.show     | Arpanext\Swagger\Schemas\Api\App\Http\Controllers\Api\Swagger\Schemas\ShowController  |            |
 +--------+----------+-----------------------------------+---------------------------------+-----------------------------------------------------------------------------------+------------+
 ```
 
