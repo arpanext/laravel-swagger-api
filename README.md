@@ -1,4 +1,4 @@
-# Laravel Swagger Schemas
+# Laravel Swagger Schemas Api
 
 ## Installation
 
