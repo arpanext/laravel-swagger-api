@@ -11,7 +11,7 @@ composer require arpanext/laravel-swagger-schemas-api
 Publish the config file with:
 
 ```shell script
-php artisan vendor:publish --provider=Arpanext\\Swagger\\Schemas\\App\\Providers\\AppServiceProvider --tag="swagger-schemas-api"
+php artisan vendor:publish --provider=Arpanext\\Swagger\\Schemas\\Api\\App\\Providers\\AppServiceProvider --tag="swagger-schemas-api"
 ```
 
 Update the coofig file in config/vendor/arpanext/swagger/schemas.php:
