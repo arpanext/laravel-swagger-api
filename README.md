@@ -18,7 +18,7 @@ Update the coofig file in config/vendor/arpanext/swagger/schemas.php:
 
 ```php
 return [
-    'swagger' => [
+    'default' => [
         'path' => 'app/Http/Controllers/Api',
     ],
 ];
